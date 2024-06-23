@@ -1,0 +1,12 @@
+## Create virtual env
+```python -m venv venv ```
+
+## activate it
+
+## Create install dependencies
+``` pip install -r requirements.txt ```
+
+## Run Django development server
+``` python manage.py runserver ```
+
+
