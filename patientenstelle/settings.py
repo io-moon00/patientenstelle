@@ -17,6 +17,7 @@ import os
 import yaml
 with open('config.yaml') as config_file:
     config = yaml.safe_load(config_file)
+    
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
