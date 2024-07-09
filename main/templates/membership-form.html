@@ -1,0 +1,83 @@
+{% extends 'page.html' %}
+{% load markdown_extras %}
+
+{% block content %}
+<section class="py-24 bg-white sm:py-32">
+    <div class="mx-auto max-w-screen-lg px-6 lg:px-8">
+        <h1 class="mb-10 text-4xl tracking-tight font-extrabold text-gray-900">{{ membership }}</h1>
+        {% if submitted %}
+            <h3 class = "success">Danke für Ihre Anfrage. Wir werden uns so schnell wie möglich bei Ihnen melden.</h3>
+        {% else %}
+        <form method="POST" class="grid max-w-screen-lg grid-cols-1 mx-auto gap-x-8 gap-y-6 sm:grid-cols-2">
+            {% csrf_token %}
+            <div class="sm:col-span-2">
+                <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 required">
+                    Anrede
+                </label>
+                {{ form.salutation }}
+            </div>
+            <div>
+                <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 required">
+                Vorname
+                </label>
+                {{ form.prename }}
+            </div>
+        
+            <div>
+                <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 required">
+                Nachname
+                </label>
+                {{ form.name }}
+            </div>
+        
+            <div>
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 required">
+                Email
+                </label>
+                {{ form.email }}
+            </div>
+        
+            <div>
+                <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900">
+                Telefon
+                </label>
+                {{ form.phone }}
+            </div>
+
+            <div class="sm:col-span-2">
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
+                Nachricht
+                </label>
+                {{ form.message }}
+            </div>
+        
+            <div class="sm:col-span-2">
+                <div class="flex items-center">
+                    {{ form.data_policy_accepted }}
+
+                <label for="terms" class="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">
+                    Ich bestätige, dass ich die 
+                    <a href="#" title="" class="font-medium text-blue-700 hover:text-blue-900">
+                    AGB
+                    </a>
+                    und die
+                    <a href="#" title="" class="font-medium text-blue-700 hover:text-blue-900">
+                    Datenschutzerklärung
+                    </a>
+                    gelesen habe und akzeptiere.
+                </label>
+                </div>
+            </div>
+        
+            <button type="submit"
+                class="px-5 py-3 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 transition-all">
+                Anmeldung senden
+            </button>
+
+                {{ form.captcha }}
+        </form>
+        {% endif %}
+      </div>
+    </section>
+
+{% endblock %}

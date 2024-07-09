@@ -1,0 +1,24 @@
+{% extends 'page.html' %}
+{% load markdown_extras %}
+
+{% block content %}
+<div class="bg-white py-24 sm:py-32">
+    <div class="mx-auto max-w-screen-lg px-6 lg:px-8">
+    <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ page.title }}</h2>
+        
+        <div class="mt-8 lg:mt-16 mb-8 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
+            {% for link in links %}
+            <div>
+                <img class="w-full h-16 object-contain" src="{{ link.image.url }}" alt="Transistor" width="158" height="48">
+                <h3 class="mt-4 mb-4 text-2xl font-bold dark:text-white">{{ link.name }}</h3>
+                <p class="mb-4 text-gray-500 dark:text-gray-400">Enterprise tools cost more, are difficult to use, and take longer to implement. According to G2, Flowbite is the easiest-to-use tool, with the fastest time to ROI.
+                    <a href="{{ link.url }}" target="_blank" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-700">
+                        mehr <span aria-hidden="true">&rarr;</span>
+                    </a>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

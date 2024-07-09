@@ -1,0 +1,63 @@
+{% extends 'page.html' %}
+{% load markdown_extras %}
+
+{% block content %}
+<div class="py-24 bg-white sm:py-32">
+    <div class="mx-auto max-w-screen-lg px-6 lg:px-8">
+        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ page.title }}</h2>
+        <p class="mt-2 text-lg leading-8 text-gray-600">{{ page.content | convert_markdown | safe }}</p>
+        <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
+            {% for post in posts %}
+            <article class="relative isolate flex flex-col gap-8 lg:flex-row">
+            <div class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
+                <img src="{{ post.img.url }}" alt="" class="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover">
+                <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+            </div>
+            <div>
+                <div class="flex items-center gap-x-4 text-xs">
+                <time datetime="2020-03-16" class="text-gray-500">{{ post.date }}</time>
+                <div class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{ post.category.name }}</div>
+                </div>
+                <div class="group relative max-w-xl">
+                <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                    <a href="#">
+                    <span class=""></span>
+                    {{ post.title }}
+                    </a>
+                </h3>
+                <p class="mt-5 text-sm leading-6 text-gray-600">{{ post.lead }} 
+                    {% if post.content %}
+                    <a href="{% url 'single_post' post.id %}" class="text-sm font-semibold leading-6 text-blue-600" aria-describedby="featured-post">Mehr lesen<span aria-hidden="true">&rarr;</span></a>
+                    {% endif %}
+                </p>
+                {% if post.file %}
+                <a href="{{ post.file.url }}" target="_blank" class="text-sm font-semibold leading-6 text-blue-600" aria-describedby="featured-post">PDF <span aria-hidden="true">&rarr;</span></a>
+                {% endif %}
+                </div>
+                <div class="mt-6 flex border-t border-gray-900/5 pt-6">
+                <div class="relative flex items-center gap-x-4">
+                    {% if post.author.img %}
+                    <img src="{{ post.author.img.url }}" alt="Profil Bild von {{post.author.name }}" class="h-10 w-10 rounded-full bg-gray-50">
+                    {% else %}
+                    <img class="h-10 w-10 rounded-full bg-gray-50" src="../../media/defaul-profile.png" alt="default Profil image">
+                    {% endif %}
+                    <div class="text-sm leading-6">
+                    <p class="font-semibold text-gray-900">
+                        <a href="#">
+                        <span class="absolute inset-0"></span>
+                        {{ post.author.name }}
+                        </a>
+                    </p>
+                    <p class="text-gray-600">{{ post.author.position }}</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+  
+
+{% endblock %}

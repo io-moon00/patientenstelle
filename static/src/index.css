@@ -1,0 +1,29 @@
+.content h2{
+    margin-top: 0.5rem;
+    color: #1d4ed8;
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */ 
+    letter-spacing: -0.025em;
+    font-weight: 700;
+}
+
+.content h3{
+    color: #1d4ed8;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */    
+    font-weight: 700;
+}
+
+.content a{
+    color: #1d4ed8;
+    text-decoration: none;
+}
+
+.content a:hover{
+    color: #1e3a8a;
+}
+
+.required::after{
+    color: red;
+    content: '*';
+}

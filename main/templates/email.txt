@@ -1,0 +1,11 @@
+Anmeldung zur Mitgliedschaft
+{{ membership }}
+Anmeldung von:  
+      Anrede: {{ salutation }}
+      Vorname: {{ prename }}
+      Nachname: {{ name }}
+      E-mail: {{ email }}
+      Telefon: {{ phone }}
+  
+  	Nachricht:
+    {{ message }}
