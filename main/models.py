@@ -96,6 +96,7 @@ class TeamMember(models.Model):
 class Offer(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
+    frontpage = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Angebot"

@@ -13,12 +13,14 @@ year = datetime.datetime.now().year
 
 def home(request):
     page = Page.objects.get(page='home')
-    return render(request, 'home.html', {'page': page, 'year': year})
+    offers = Offer.objects.filter(frontpage=True)
+    return render(request, 'home.html', {'page': page, 'year': year, 'offers': offers})
 
 def about(request):
-    team = TeamMember.objects.all()
+    advisors = TeamMember.objects.filter(team='advice')
+    vorstand = TeamMember.objects.filter(team='vorstand')
     page = Page.objects.get(page='about')
-    return render(request, 'about.html', {'team': team, 'page': page, 'year': year})
+    return render(request, 'about.html', {'page': page, 'year': year, 'advisors': advisors, 'vorstand': vorstand})
 
 def offer(request):
     page = Page.objects.get(page='offer')

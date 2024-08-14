@@ -2,7 +2,9 @@
 {% load markdown_extras %}
 
 {% block content %}
+
 <div class="py-24 bg-white sm:py-32">
+    
     <div class="mx-auto max-w-screen-lg px-6 lg:px-8">
         <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ page.title }}</h2>
         <p class="mt-2 text-lg leading-8 text-gray-600">{{ page.content | convert_markdown | safe }}</p>
