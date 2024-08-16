@@ -8,28 +8,31 @@ class Page(models.Model):
         ('offer', 'Angebot'),
         ('about', 'About'),
         ('membership', 'Mitgliedschaft'),
-        ('contact', 'Contact'),
-        ('links', 'Links')
+        ('contact', 'Kontakt'),
+        ('links', 'Links'),
+        ('agb', 'AGB'),
+        ('impressum', 'Impressum'),
+        ('privacy', 'Datenschutzerklärung'),
     ]
     title = models.CharField(max_length=100)
     content = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
-    page = models.CharField(max_length=10, choices=PAGE, default='home')
+    page = models.CharField(max_length=10, choices=PAGE, unique=True)
 
     class Meta:
         verbose_name = "Seite"
         verbose_name_plural = "Seiten"
         
     def __str__(self):
-        return self.page
+        return self.title 
 
 
 class Link(models.Model):
     name = models.CharField(max_length=100)
     url = models.URLField(max_length=200)
     image = models.ImageField(upload_to='images/')
-    image_alt = models.CharField(max_length=100)
-
+    description = models.TextField()
+    
     def __str__(self):
         return self.name
 

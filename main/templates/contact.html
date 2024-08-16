@@ -3,12 +3,12 @@
 
 {% block content %}
 
-<section class="py-24 bg-white sm:py-32">
+<section class="pt-24 bg-white sm:pt-32">
     <div class="mx-auto max-w-screen-lg px-6 lg:px-8">
       <div class="grid grid-cols-1 gap-6 text-center sm:gap-16 sm:grid-cols-2 lg:grid-cols-3">
         <div class="hidden lg:block">
             <div
-              class="inline-flex items-center justify-center w-16 h-16 mx-auto text-gray-500 bg-gray-100 rounded-lg dark:bg-gray-800 dark:text-white">
+              class="inline-flex items-center justify-center w-16 h-16 mx-auto text-gray-500 bg-gray-100 rounded-lg dark:bg-gray-800">
               <svg aria-hidden="true" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                 fill="currentColor">
                 <path
@@ -16,20 +16,20 @@
               </svg>
             </div>
             <div class="mt-4">
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+              <h3 class="text-xl font-bold text-gray-900">
               Telefon
               </h3>
               <p class="mt-1 text-base font-normal text-gray-500 dark:text-gray-400">
-                  Nach telefonischer Vereinbarung reservieren wir Ihnen gerne einen persönlichen Termin
+                  Sie erreichen uns telefonisch Mo-Fr von 8.00 bis 11.00 Uhr
               </p>
-              <a href="tel:+410612614241" title="" class="block mt-1 text-base font-semibold text-blue-700 dark:text-white hover:underline">
+              <a href="tel:+410612614241" title="" class="block mt-1 text-base font-semibold text-main hover:underline">
                   061 261 42 41
               </a>
             </div>
           </div>
         <div>
           <div
-            class="inline-flex items-center justify-center w-16 h-16 mx-auto text-gray-500 bg-gray-100 rounded-lg dark:bg-gray-800 dark:text-white">
+            class="inline-flex items-center justify-center w-16 h-16 mx-auto text-gray-500 bg-gray-100 rounded-lg">
             <svg aria-hidden="true" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
               fill="currentColor">
               <path fill-rule="evenodd"
@@ -38,7 +38,7 @@
             </svg>
           </div>
           <div class="mt-4">
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+            <h3 class="text-xl font-bold text-gray-900">
                 Schriftliche Anfragen
             </h3>
             <p class="mt-1 text-base font-normal text-gray-500 dark:text-gray-400">
@@ -56,8 +56,9 @@
             <h3 class="text-xl font-bold text-gray-900 dark:text-white">
                 Email
             </h3>
-            <p class="mt-1 text-base font-normal text-blue-700">
+            <p class="mt-1 text-base font-normal text-main">
                 <a href="mailto:patientenstelle.basel@bluewin.ch">patientenstelle.basel@bluewin.ch</a>
+                <a href="mailto:patientenstelle.basel@hin.ch">patientenstelle.basel@hin.ch</a>
             </p>
           </div>
         </div>
@@ -104,7 +105,7 @@
         </div>
 
         <div class="sm:col-span-2">
-            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
+            <label for="message" class="block mb-2 text-sm font-medium text-gray-900">
             Nachricht
             </label>
             {{ form.message }}
@@ -114,13 +115,13 @@
             <div class="flex items-center">
                 {{ form.data_policy_accepted }}
 
-            <label for="terms" class="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">
+            <label for="terms" class="ml-2 text-sm font-normal text-gray-500">
                 Ich bestätige, dass ich die 
-                <a href="#" title="" class="font-medium text-blue-700 hover:text-blue-900">
+                <a href="#" title="" class="font-medium text-main hover:text-main-dark">
                 AGB
                 </a>
                 und die
-                <a href="#" title="" class="font-medium text-blue-700 hover:text-blue-900">
+                <a href="#" title="" class="font-medium text-main hover:text-main-dark">
                 Datenschutzerklärung
                 </a>
                 gelesen habe und akzeptiere.
@@ -129,7 +130,7 @@
         </div>
     
         <button type="submit"
-            class="px-5 py-3 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 transition-all">
+            class="px-5 py-3 text-sm font-medium text-center text-white rounded-lg bg-main hover:bg-main-dark sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 transition-all">
             Anfrage senden
         </button>
 
@@ -137,6 +138,15 @@
     </form>
     {% endif %}
       </div>
+    </div>
+  </section>
+  <section class="py-6 bg-white sm:py-8">
+    <div class="mx-auto max-w-screen-lg px-6 lg:px-8">
+      <h3 class="mt-8 mb-6 text-2xl font-bold tracking-tight text-gray-900">So finden Sie uns</h3>
+      <img src="../../media/maps-withtext.png" />
+      <p class="mt-8 text-gray-500">{{ page.content }}<a href="https://maps.app.goo.gl/fEMb864kvRxNkM3LA" target="_blank" class="inline-flex items-center font-medium text-main hover:text-main-dark">
+          Google maps <span aria-hidden="true">&rarr;</span>
+      </a></p>
     </div>
   </section>
 

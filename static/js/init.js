@@ -1,51 +1,29 @@
-let NavbarBtn;
-let btnIcon;
-let navLinks;
+class MobileMenu {
+    constructor() {
+        this.menu = document.querySelector("#mobile-menu")
+        this.MenuButton = document.querySelector("#open-menu-btn")
+        this.openIcon = document.querySelector("#icon-open")
+        this.closeIcon = document.querySelector("#icon-close")
+        this.events()
+      }
 
-function init(){
-    openTap('mining');
-    NavbarBtn = document.getElementById('navbar-btn');
-    btnIcon = document.getElementById('btn-icon');
-    navLinks = document.getElementById('nav');
+      events() {
+        this.MenuButton.addEventListener("click", () => this.toggleMenu())
+      }
 
-    if (submitted()){
-        document.getElementById('contact').scrollIntoView();
-    }
+      toggleMenu() {
+        const isExpanded = this.MenuButton.getAttribute('aria-expanded') === 'true';
+        console.log(isExpanded ? 'Close the menu' : 'Open the menu');
+        this.openIcon.classList.toggle('block', isExpanded);
+        this.openIcon.classList.toggle('hidden', !isExpanded);
+        this.closeIcon.classList.toggle('block', !isExpanded);
+        this.closeIcon.classList.toggle('hidden', isExpanded);
+        this.MenuButton.setAttribute('aria-expanded', !isExpanded);
+        this.menu.classList.toggle('hidden', isExpanded);
+      }
 }
 
-function submitted (){
-    submitted = false
-    try {
-        const product = urlParms.get('submitted')
-        submitted = true;
-    }
-    catch{
+document.addEventListener('DOMContentLoaded', () => {
+   const mobileMenu = new MobileMenu();
 
-    }
-
-    return submitted
-}
-
-
-
-
-
-
-function openPopup(popup){
-    id = 'popup-'+ popup;
-    document.getElementById(id).classList.remove('hidden');
-    document.getElementById('body').classList.add('no-scroll');
-}
-
-function closePopup(){
-    document.getElementById('popup-dataprotection').classList.add('hidden');
-    document.getElementById('popup-impressum').classList.add('hidden');
-    document.getElementById('body').classList.remove('no-scroll');
-}
-
-function prefillForm(){
-    document.getElementById('id_prename').value = 'test';
-    document.getElementById('id_name').value = 'test';
-    document.getElementById('id_email').value = 'test@gmail.com';
-    document.getElementById('id_message').value = 'test';
-}
+});

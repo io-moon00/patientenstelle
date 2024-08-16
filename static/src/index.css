@@ -1,6 +1,6 @@
 .content h2{
     margin-top: 0.5rem;
-    color: #1d4ed8;
+    color: #4F669C;
     font-size: 1.5rem; /* 24px */
     line-height: 2rem; /* 32px */ 
     letter-spacing: -0.025em;
@@ -8,20 +8,51 @@
 }
 
 .content h3{
-    color: #1d4ed8;
+    color: #4F669C;
     font-size: 1.25rem; /* 20px */
     line-height: 1.75rem; /* 28px */    
     font-weight: 700;
 }
 
 .content a{
-    color: #1d4ed8;
+    color: #4F669C;
     text-decoration: none;
 }
 
 .content a:hover{
-    color: #1e3a8a;
+    color: #3E517A;
 }
+
+.content p{
+    margin-top: 8px;
+    margin-bottom: 24px;
+    color: #6b7280;
+}
+
+.content ul{
+  color: #6b7280;
+  list-style-type: disc;
+  list-style-position: outside;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.content{
+  hyphens: auto;
+}
+
+@media (max-width: 600px){
+  .legal p{
+    hyphens: auto;
+    text-align: justify;
+  }
+
+
+
+}
+
 
 .required::after{
     color: red;
@@ -31,3 +62,26 @@
 body{
     font-size: 20px !important;
 }
+
+/* Scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #afafaf;
+    border-radius: 2px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+  }

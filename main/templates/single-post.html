@@ -2,18 +2,18 @@
 {% load markdown_extras %}
 
 {% block content %}
-<div class="mx-auto max-w-screen-lg text-base sm:px-6 lg:px-8 leading-7 text-gray-700">
-    <section class="bg-white dark:bg-gray-900">
+<div class="mx-auto max-w-screen-lg text-base sm:px-6 lg:px-8 leading-7 text-gray-700 mb-32">
+    <section class="bg-white">
         <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-            <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+            <div class="font-light text-gray-500 sm:text-lg">
                 <div class="flex items-center gap-x-4 text-xs">
                     <time datetime="2020-03-16" class="text-gray-500">{{ post.date }}</time>
-                    <div class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{ post.category.name }}</div>
+                    <div class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{ post.category.name }}</div>
                   </div>
                 <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ post.title }}</h2>
                 <p class="mb-4 content">{{ post.content | convert_markdown | safe  }}</p>
             </div>
-            <img class="w-full rounded-lg" src="{{ post.img.url }}" alt="">
+            <img class="w-full rounded-lg mt-12 lg:mt-0" src="{{ post.img.url }}" alt="">
         </div>
     </section>
 </div>

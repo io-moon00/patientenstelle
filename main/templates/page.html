@@ -1,8 +1,9 @@
 {% load compress %}
 {% load static %}
+{% load navigation_tags %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,26 @@
     <link rel="stylesheet" href="{% static 'src/index.css' %}">
     {% endcompress %}
 
+    <link rel="apple-touch-icon" sizes="180x180" href="../../media/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../media/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../media/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../media/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../media/favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- social Media Tags -->
+    <meta property="og:title" content="Patientenstelle Basel"/>
+    <meta property="og:description" content="Fachkundige und menschliche Beratung - Begleitung bei medizinischen Rechtsfragen - Wir sind für Sie da!"/>
+    <meta property="og:image" content="{% static 'media/logo.png' %}"/>
+    <meta property="twitter:title" content="Patientenstelle Basel"/>
+    <meta property="twitter:description" content="Fachkundige und menschliche Beratung - Begleitung bei medizinischen Rechtsfragen - Wir sind für Sie da!"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="{% static 'media/logo.png' %}"/>
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <title>Patientenstelle</title>
+
+    <script src="{% static 'js/init.js' %}"></script>
 </head>
 <body>
     <header class="shadow fixed left-0 right-0 top-0 z-10">
@@ -20,7 +40,7 @@
               <div class="relative flex h-16 justify-between">
                 <div class="absolute inset-y-0 left-0 flex items-center lg:hidden">
                   <!-- Mobile menu button -->
-                  <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                  <button id="open-menu-btn" type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
                     <span class="absolute -inset-0.5"></span>
                     <span class="sr-only">Open main menu</span>
                     <!--
@@ -28,7 +48,7 @@
           
                       Menu open: "hidden", Menu closed: "block"
                     -->
-                    <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <svg id="icon-open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
                     <!--
@@ -36,65 +56,41 @@
           
                       Menu open: "block", Menu closed: "hidden"
                     -->
-                    <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <svg id="icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
                 </div>
                 <div class="flex flex-1 items-center justify-center lg:items-stretch lg:justify-start">
-                  <div class="flex flex-shrink-0 items-center">
-                    <img class="h-8 w-auto" src="../../media/logo.svg" alt="Patientenstelle Basel">
-                  </div>
+                  <a href="{% url 'home' %}" class="flex flex-shrink-0 items-center">
+                    <img class="h-8 w-auto" src="../../media/logo.png" alt="Patientenstelle Basel">
+                  </a>
                   <div class="hidden sm:ml-6 lg:flex sm:space-x-8">
                     <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-                    {% if page.page == 'home' %}
-                    <a href="{% url 'home' %}" class="inline-flex items-center border-b-2 border-blue-700 px-1 pt-1 text-sm font-medium text-gray-900">Home</a>
-                    {% else %}
-                    <a href="{% url 'home' %}" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Home</a>
-                    {% endif %}
-                    {% if page.page == 'news' %}
-                    <a href="{% url 'news' %}" class="inline-flex items-center border-b-2 border-blue-700 px-1 pt-1 text-sm font-medium text-gray-900">News</a>
-                    {% else %}
-                    <a href="{% url 'news' %}" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">News</a>
-                    {% endif %}
-                    {% if page.page == 'offer' %}
-                    <a href="{% url 'offer' %}" class="inline-flex items-center border-b-2 border-blue-700 px-1 pt-1 text-sm font-medium text-gray-900">Angebot</a>
-                    {% else %}
-                    <a href="{% url 'offer' %}" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Angebot</a>
-                    {% endif %}
-                    {% if page.page == 'about' %}
-                    <a href="{% url 'about' %}" class="inline-flex items-center border-b-2 border-blue-700 px-1 pt-1 text-sm font-medium text-gray-900">Über uns</a>
-                    {% else %}
-                    <a href="{% url 'about' %}" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Über uns</a>
-                    {% endif %}
-                    {% if page.page == 'membership' %}
-                    <a href="{% url 'membership' %}" class="inline-flex items-center border-b-2 border-blue-700 px-1 pt-1 text-sm font-medium text-gray-900">Mitglied werden</a>
-                    {% else %}
-                    <a href="{% url 'membership' %}" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Mitglied werden</a>
-                    {% endif %}
-                    {% if page == 'contact' %}
-                    <a href="{% url 'contact' %}" class="inline-flex items-center border-b-2 border-blue-700 px-1 pt-1 text-sm font-medium text-gray-900">Kontakt</a>
-                    {% else %}
-                    <a href="{% url 'contact' %}" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Kontakt</a>
-                    {% endif %}
-                    {% if page.page == 'links' %}
-                    <a href="{% url 'links' %}" class="inline-flex items-center border-b-2 border-blue-700 px-1 pt-1 text-sm font-medium text-gray-900">Links</a>
-                    {% else %}
-                    <a href="{% url 'links' %}" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Links</a>
-                    {% endif %}
+                    <a href="{% url 'home' %}" class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium {% active_class 'home' page.page %}">Home</a>
+                    <a href="{% url 'news' %}" class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium {% active_class 'news' page.page %}">News</a>
+                    <a href="{% url 'offer' %}" class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium {% active_class 'offer' page.page %}">Angebot</a>
+                    <a href="{% url 'about' %}" class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium {% active_class 'about' page.page %}">Über uns</a>
+                    <a href="{% url 'membership' %}" class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium {% active_class 'membership' page.page %}">Mitglied werden</a>
+                    <a href="{% url 'contact' %}" class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium {% active_class 'contact' page.page %}">Kontakt</a>
+                    <a href="{% url 'links' %}" class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium {% active_class 'links' page.page %}">Links</a>
                   </div>
                 </div>
               </div>
             </div>
           
             <!-- Mobile menu, show/hide based on menu state. -->
-            <div class="hidden lg:hidden" id="mobile-menu">
+            <div class="hidden lg:hidden z-20" id="mobile-menu">
               <div class="space-y-1 pb-4 pt-2">
                 <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
-                <a href="#" class="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700">Dashboard</a>
-                <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Team</a>
-                <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Projects</a>
-                <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Calendar</a>
+                <a href="{% url 'home' %}" class="block border-l-4 py-2 pl-3 pr-4 text-base font-medium {% active_class 'home' page.page %}">Home</a>
+                <a href="{% url 'news' %}" class="block border-l-4 py-2 pl-3 pr-4 text-base font-medium {% active_class 'news' page.page %}">News</a>
+                <a href="{% url 'offer' %}" class="block border-l-4 py-2 pl-3 pr-4 text-base font-medium {% active_class 'offer' page.page %}">Angebot</a>
+                <a href="{% url 'about' %}" class="block border-l-4 py-2 pl-3 pr-4 text-base font-medium {% active_class 'about' page.page %}">Über uns</a>
+                <a href="{% url 'membership' %}" class="block border-l-4 py-2 pl-3 pr-4 text-base font-medium {% active_class 'membership' page.page %}">Mitglied werden</a>
+                <a href="{% url 'contact' %}" class="block border-l-4 py-2 pl-3 pr-4 text-base font-medium {% active_class 'contact' page.page %}">Kontakt</a>
+                <a href="{% url 'links' %}" class="block border-l-4 py-2 pl-3 pr-4 text-base font-medium {% active_class 'links' page.page %}">Links</a>
+
               </div>
             </div>
           </nav>
@@ -106,25 +102,24 @@
     {% endblock %}
   </main>
 
-<footer class="bg-white w-full">
-    <div class="w-full max-w-screen-lg mx-auto px-2 sm:px-6 lg:px-8 md:py-8">
-        <div class="sm:flex sm:items-center sm:justify-between">
-            <div class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                <img src="../../media/logo.svg" class="h-8" alt="Patientenstelle Logo" />
-              
+<footer class="bg-white w-full px-2 sm:px-6 lg:px-8 pb-10">
+    <div class="w-full max-w-screen-lg mx-auto md:py-8">
+        <div class="flex-col sm:flex-row sm:flex items-center sm:justify-between">
+            <div class="flex justify-center sm:justify-start items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                <img src="../../media/logo.png" class="h-8" alt="Patientenstelle Logo" />
             </div>
-            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+            <ul class="flex flex-col sm:flex-row flex-wrap justify-center sm:justify-start items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 gap-4 sm:gap-0">
                 <li>
-                    <a href="{% url 'contact' %}" class="hover:underline me-4 md:me-6">Kontakt</a>
+                    <a href="{% url 'contact' %}" class="hover:underline sm:me-4 md:me-6">Kontakt</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">Impressum</a>
+                    <a href="{% url 'impressum' %}" class="hover:underline sm:me-4 md:me-6">Impressum</a>
                 </li>
                 <li>
-                  <a href="#" class="hover:underline me-4 md:me-6">AGB</a>
+                  <a href="{% url 'agb' %}" class="hover:underline sm:me-4 md:me-6">AGB</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">Datenschutzerklärung</a>
+                    <a href="{% url 'privacy' %}" class="hover:underline sm:me-4 md:me-6">Datenschutzerklärung</a>
                 </li>
                 <li>
                   <a href="admin/" class="hover:underline">Login</a>
@@ -132,7 +127,8 @@
             </ul>
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© {{ year }} Patientenstelle Basel. Alle Rechte vorbehalten.</span>
+        <span class="block text-sm text-gray-500 text-center">© {{ year }} Patientenstelle Basel. Alle Rechte vorbehalten.</span>
+        <span class="block text-sm text-gray-500 text-center">Made with love by <a class="text-main" href="https://hexacoding.ch/">Hexacoding</a></span>
     </div>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>

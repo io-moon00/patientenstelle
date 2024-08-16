@@ -28,7 +28,7 @@ def offer(request):
     return render(request, 'offer.html', {'page': page, 'year': year, 'offers': offers})
 
 def contact(request):
-    page = 'contact'
+    page = Page.objects.get(page='contact')
     submitted = False
     form = ContactForm(request.POST or None)
 
@@ -78,3 +78,14 @@ def links(request):
     links = Link.objects.all()
     return render(request, 'links.html', {'page': page, 'year': year, 'links': links})
 
+def agb(request):
+    page = Page.objects.get(page='agb')
+    return render(request, 'legal.html', {'page': page, 'year': year})
+
+def privacy(request):
+    page = Page.objects.get(page='privacy')
+    return render(request, 'legal.html', {'page': page, 'year': year})
+
+def impressum(request):
+    page = Page.objects.get(page='impressum')
+    return render(request, 'legal.html', {'page': page, 'year': year})

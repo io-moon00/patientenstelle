@@ -6,6 +6,12 @@ module.exports = {
       './node_modules/flowbite/**/*.js'
   ],
   theme: {
+    colors: {
+      'main': {
+        light: '#6F82B5',
+        DEFAULT: '#4F669C',
+        dark: '#3E517A',
+      }},
     extend: {},
   },
   plugins: [

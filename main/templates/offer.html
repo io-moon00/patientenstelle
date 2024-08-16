@@ -5,7 +5,7 @@
 <div class="py-24 bg-white sm:py-32">
     <div class="mx-auto max-w-screen-lg px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
-            <p class="text-base font-semibold leading-7 text-blue-700">Gut beraten.</p>
+            <p class="text-base font-semibold leading-7 text-main">Gut beraten.</p>
             <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">{{ page.title }}</h2>
             <p class="mt-6 text-lg leading-8 text-gray-800 content">{{ page.content | convert_markdown | safe  }}</p>
         </div>
@@ -13,7 +13,7 @@
         {% for offer in offers %}
         <div class="relative text-lg pl-9">
           <dt class="inline font-bold text-gray-900">
-            <svg class="absolute left-1 top-1 h-5 w-5 text-blue-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <svg class="absolute left-1 top-1 h-5 w-5 text-main" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                 <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd"/>
             </svg> 
             {{ offer.title }}.
@@ -25,13 +25,13 @@
     </div>
   </div>
   
-  <section class="bg-gray-900">
+  <section class="bg-gray-900  mb-32">
         <div class="py-8 px-4 mx-auto max-w-screen-lg text-center sm:py-16 lg:px-6">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-300">Wie beraten wir?</h2>
-            <p class="text-gray-500 sm:text-xl ">Here are a few reasons why you should choose us</p>
+            <p class="text-gray-500 sm:text-xl ">Sie können bei uns verschiedene Broschüren beziehen unter anderem auch Patientenverfügungen.</p>
             <div class="mt-8 lg:mt-12 space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
                 <div>
-                    <svg class="mx-auto mb-4 w-12 h-12 text-blue-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <svg class="mx-auto mb-4 w-12 h-12 text-main" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.427 14.768 17.2 13.542a1.733 1.733 0 0 0-2.45 0l-.613.613a1.732 1.732 0 0 1-2.45 0l-1.838-1.84a1.735 1.735 0 0 1 0-2.452l.612-.613a1.735 1.735 0 0 0 0-2.452L9.237 5.572a1.6 1.6 0 0 0-2.45 0c-3.223 3.2-1.702 6.896 1.519 10.117 3.22 3.221 6.914 4.745 10.12 1.535a1.601 1.601 0 0 0 0-2.456Z"/>
                     </svg>              
                     <h3 class="mb-2 text-xl text-gray-300 font-bold">Telefonisch</h3>
@@ -41,7 +41,7 @@
                     </a>
                 </div>
                 <div>
-                    <svg class="mx-auto mb-4 w-12 h-12 text-blue-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <svg class="mx-auto mb-4 w-12 h-12 text-main" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.99 9H15M8.99 9H9m12 3a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM7 13c0 1 .507 2.397 1.494 3.216a5.5 5.5 0 0 0 7.022 0C16.503 15.397 17 14 17 13c0 0-1.99 1-4.995 1S7 13 7 13Z"/>
                     </svg>                  
                     <h3 class="mb-2 text-xl font-bold text-gray-300">Persönlich</h3>
@@ -51,7 +51,7 @@
                     </a>
                 </div>
                 <div>
-                    <svg class="mb-4 w-12 h-12  mx-auto text-blue-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <svg class="mb-4 w-12 h-12  mx-auto text-main" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m8 7.5 2.5 2.5M19 4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Zm-5 9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                     </svg>
                     <h3 class="mb-2 text-xl font-bold text-gray-300">Fallbearbeitung</h3>

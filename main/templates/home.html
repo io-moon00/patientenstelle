@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 px-2 sm:px-6 lg:px-8">
-    <img src="../../media/pat-1.png" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+    <img src="{{ page.image.url }}" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
     <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
       <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#1d4ed8] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
     </div>
@@ -12,11 +12,14 @@
     </div>
     <div class="mx-auto max-w-screen-lg px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:mx-0">
-        <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Patientenstelle Basel</h2>
-        <p class="mt-6 text-lg leading-8 text-gray-300">Fachkundige und menschliche Beratung und Begleitung bei medizinischen Rechtsfragen. Wir sind für Sie da.</p>
-        <div class="flex items-center justify-center gap-4 mt-8 lg:justify-start">
+        <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl text-center md:text-start">Patientenstelle Basel</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-300 text-center md:text-start">Fachkundige und menschliche Beratung für Menschen </br> im Kanton Baselland und Baselstadt</br>
+          Begleitung bei medizinischen Rechtsfragen</br>
+          Wir sind für Sie da
+          </p>
+        <div class="flex items-center justify-center gap-4 mt-8 md:justify-start">
             <a href="{% url 'offer' %}" title=""
-              class="px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg shrink-0 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              class="px-5 py-3 text-base font-medium text-center text-white bg-main rounded-lg shrink-0 hover:bg-main-dark focus:ring-4 focus:outline-none"
               role="button">
               Unser Angebot
             </a>
@@ -38,34 +41,27 @@
   </div>
   <div class="bg-white px-6 py-32 lg:px-8">
     <div class="mx-auto max-w-screen-lg text-base sm:px-6 lg:px-8 leading-7 text-gray-700">
-      <p class="text-base font-semibold leading-7 text-blue-700">Patientenstelle Basel</p>
+      <p class="text-base font-semibold leading-7 text-main">Patientenstelle Basel</p>
       <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ page.title }}</h1>
       <div class="mt-10 max-w-screen-lg ">
         <div class="content text-lg">{{ page.content | convert_markdown | safe }}</div>
         <ul role="list" class="mt-8 max-w-screen-lg text-lg space-y-8 text-gray-600">
           {% for offer in offers %}
           <li class="flex gap-x-3">
-            <svg class="mt-1 h-5 w-5 flex-none text-blue-700" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <svg class="mt-1 h-5 w-5 flex-none text-main" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
             </svg>
             <span><strong class="font-semibold text-gray-900">{{ offer.title }}.</strong> {{ offer.content }}</span>
           </li>
           {% endfor %}
         </ul>
-        <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">From beginner to expert in 3 hours</h2>
-        <p class="mt-6 text-lg">Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam consequat in. Convallis arcu ipsum urna nibh. Pharetra, euismod vitae interdum mauris enim, consequat vulputate nibh. Maecenas pellentesque id sed tellus mauris, ultrices mauris. Tincidunt enim cursus ridiculus mi. Pellentesque nam sed nullam sed diam turpis ipsum eu a sed convallis diam.</p>
-        <figure class="mt-10 border-l border-blue-700 pl-9">
-          <blockquote class="font-semibold text-gray-900">
-            <p>“Vel ultricies morbi odio facilisi ultrices accumsan donec lacus purus. Lectus nibh ullamcorper ac dictum justo in euismod. Risus aenean ut elit massa. In amet aliquet eget cras. Sem volutpat enim tristique.”</p>
-          </blockquote>
-          <figcaption class="mt-6 flex gap-x-4">
-            <img class="h-6 w-6 flex-none rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            <div class="text-sm leading-6"><strong class="font-semibold text-gray-900">Maria Hill</strong> – Marketing Manager</div>
-          </figcaption>
-        </figure>
-        <p class="mt-10 text-lg">Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit.</p>
+        
       </div>
-      
+      <p class="mb-4 mt-12 text-gray-500 dark:text-gray-400">
+        <a href="{% url 'offer' %}" target="_blank" class="inline-flex items-center font-medium text-main hover:text-main-dark">
+            Gesamtes Angebot <span aria-hidden="true">&rarr;</span>
+        </a>
+    </p>
      
     </div>
   </div>

@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import home, about, offer, contact, membership, news, single_post, membership_form, links
+from main.views import home, about, offer, contact, membership, news, single_post, membership_form, links, agb, privacy, impressum
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -31,7 +31,10 @@ urlpatterns = [
     path('membership/<slug:slug>', membership_form, name='membership_form' ),
     path('news/', news, name='news'),
     path('news/<int:pk>', single_post, name='single_post'),
-    path('links/', links, name='links')
+    path('links/', links, name='links'),
+    path('agb/', agb, name='agb'),
+    path('privacy/', privacy, name='privacy'),
+    path('impressum/', impressum, name='impressum'),
 ]
 
 if settings.DEBUG:
