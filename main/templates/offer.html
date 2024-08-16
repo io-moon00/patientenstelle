@@ -7,7 +7,8 @@
         <div class="mx-auto max-w-2xl lg:mx-0">
             <p class="text-base font-semibold leading-7 text-main">Gut beraten.</p>
             <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">{{ page.title }}</h2>
-            <p class="mt-6 text-lg leading-8 text-gray-800 content">{{ page.content | convert_markdown | safe  }}</p>
+            <p class="mt-6 text-lg leading-8 text-gray-800 content">{{ page.content | convert_markdown | safe  }} <a href="#price" class="text-main">Unsere Beratungsgebühren</a></p>
+
         </div>
       <dl class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 text-gray-800 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16">
         {% for offer in offers %}
@@ -24,6 +25,8 @@
       </dl>
     </div>
   </div>
+
+  
   
   <section class="bg-gray-900  mb-32">
         <div class="py-8 px-4 mx-auto max-w-screen-lg text-center sm:py-16 lg:px-6">
@@ -63,4 +66,34 @@
             </div>
         </div>
   </section>
+  <div class="bg-white mb-24 sm:mb-32" id="price">
+    <div class="mx-auto max-w-screen-lg px-6 lg:px-8">
+    <div class="px-4 sm:px-0">
+      <h3 class="font-semibold leading-7 text-2xl text-gray-900">Beratungsgebühren</h3>
+      <p class="mt-1 max-w-2xl leading-6 text-gray-500 text-lg">Für unsere Dienstleitungen erheben wir folgende Gebühren.</p>
+    </div>
+    <div class="mt-6 border-t border-gray-100">
+      <dl class="divide-y divide-gray-100">
+        <div class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0">
+          <dt class="text-lg font-medium leading-6 text-gray-900 text-lg">Telefonische Auskünfte</dt>
+          <dd class="mt-1 text-lg leading-6 text-gray-700 sm:mt-0">Kostenlos (Normaltarif Telefongebühren)</dd>
+        </div>
+        <div class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0">
+          <dt class="text-lg font-medium leading-6 text-gray-900">Persönliche Beratungen (nur nach telefonischer Anmeldung)</dt>
+          <dd class="mt-1 text-lg leading-6 text-gray-700 sm:mt-0">60 CHF/Stunde </br>Mitglieder: 30 CHF/Stunde</dd>
+        </div>
+        <div class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0">
+          <dt class="text-lg font-medium leading-6 text-gray-900">Juristische Beratung durch unsere Juristen</dt>
+          <dd class="mt-1 text-lg leading-6 text-gray-700 sm:mt-0">60 CHF/Stunde </br>Mitglieder: 30 CHF/Stunde</dd>
+        </div>
+        <div class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0">
+          <dt class="text-lg font-medium leading-6 text-gray-900">Abklärungen, welche das Führen eines Dossiers und Korrespondenz erfordern:</dt>
+          <dd class="mt-1 text-lg leading-6 text-gray-700 sm:mt-0">60 CHF/Stunde </br>Mitglieder: 30 CHF/Stunde</dd>
+        </div>
+      </dl>
+    </div>
+    <p class="mt-1 max-w-2xl text-lg leading-6 text-gray-500">*In Härtefällen ist eine Kostenreduktion möglich</p>
+</div>
+</div>
+  
 {% endblock %}

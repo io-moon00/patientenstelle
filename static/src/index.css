@@ -1,3 +1,14 @@
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+.border-main {
+  --tw-border-opacity: 1;
+  border-color: rgb(79 102 156 / var(--tw-border-opacity));
+}
+
+
 .content h2{
     margin-top: 0.5rem;
     color: #4F669C;
