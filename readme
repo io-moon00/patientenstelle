@@ -1,12 +1,28 @@
 ## Create virtual env
 ```python -m venv venv ```
 
-## activate it
+## Activate it
+On Windows:
+``` .\venv\Scripts\activate ```
 
-## Create install dependencies
+On macOS/Linux:
+``` source venv/bin/activate ```
+
+## Install dependencies
 ``` pip install -r requirements.txt ```
+
+## Install npm dependencies
+``` npm install ```
+
+## Run Tailwind CSS build process
+``` npm run tailwind ```
 
 ## Run Django development server
 ``` python manage.py runserver ```
 
-
+## Additional Notes
+- Ensure you have Node.js and npm installed on your system.
+- The `tailwindcss` command will watch for changes in your CSS files and recompile them automatically.
+- Flowbite and Preline are included in the npm dependencies and will be available for use in your project.
+- Flowbite and Preline are included in the npm dependencies and will be available for use in your project.
+- Ensure that the `node_modules` folder is placed in the `static` folder.

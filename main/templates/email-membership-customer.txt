@@ -1,0 +1,30 @@
+Anmeldung zur Mitgliedschaft
+Besten Dank für Ihre Anmeldung, Sie erhalten in Kürze Post von uns, mit den wichtigsten 
+Unterlagen und dem Einzahlungsschein für die Mitgliedschaft. 
+Bei Fragen dürfen Sie uns gerne telefonisch zu unseren Büroöffnungszeiten kontaktieren.
+
+
+Zusammenfassung Ihrer Anmeldung:
+      Mitgliedschaft: {{ membership }}
+      Anrede: {{ salutation }}
+      Vorname: {{ prename }}
+      Nachname: {{ name }}
+      E-mail: {{ email }}
+      Telefon: {{ phone }}
+      Adresse: 
+      {{ street }}
+      {{ plz }} {{ place }}
+  
+  	Nachricht:
+    {{ message }}
+
+
+
+Freundliche Grüsse
+
+Patientenstelle Basel
+Dornacherstrasse 404
+4002 Basel
+Tel: 061 261 42 41
+Mo. - Fr. von 08.00h bis 11.00h
+patientenstelle.basel@bluewin.ch

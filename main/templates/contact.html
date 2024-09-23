@@ -2,6 +2,11 @@
 
 
 {% block content %}
+{% if email_error %}
+<script>
+  alert('Leider ist beim Senden des Kontaktformulars ein Fehler aufgetreten. Bitte nehmen Sie telefonisch oder per Mail Kontakt mit uns auf.');
+</script>
+{% endif %}
 
 <section class="pt-24 bg-white sm:pt-32">
     <div class="mx-auto max-w-screen-lg px-6 lg:px-8">
@@ -66,7 +71,7 @@
   
       <div class="max-w-screen-lg mx-auto mt-8 lg:mt-24">
         {% if submitted %}
-        <h3 class = "success">Danke für Ihre Anmeldung.</h3>
+        <h3 class = "success">Danke für Ihre Nachricht. Wir melden uns so schnell wie möglich. In dringenden Fällen rufen Sie uns bitte an.</h3>
     {% else %}
     <form method="POST" class="grid max-w-screen-lg grid-cols-1 mx-auto gap-x-8 gap-y-6 sm:grid-cols-2">
         {% csrf_token %}

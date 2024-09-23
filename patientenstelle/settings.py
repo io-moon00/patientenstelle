@@ -15,7 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import os
 import yaml
-with open('config.yaml') as config_file:
+with open('/etc/config.yaml') as config_file:
     config = yaml.safe_load(config_file)
     
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,9 +28,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['213.165.83.243', 'https://basel.patientenstelle.ch/']
 
 
 # Application definition
@@ -246,3 +246,11 @@ JAZZMIN_SETTINGS = {
 RECAPTCHA_PUBLIC_KEY = '6LcddCMpAAAAABGfmxV6nwAkD-Z3IMV6LEer2C32'
 RECAPTCHA_PRIVATE_KEY = config['RECAPTCHA_PRIVATE_KEY']
 RECAPTCHA_REQUIRED_SCORE = 0.85
+
+DEFAULT_FROM_EMAIL = 'Patientenstelle Basel <patientenstelle.basel@bluewin.ch>'  # Name unter dem die E-Mail verschickt wird und die dazugehörige E-Mail-Adresse
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # SMTP-Backend: django.core.mail.backends.console.EmailBackend
+EMAIL_HOST = 'mail.infomaniak.com'
+EMAIL_PORT = 587 # oder 465 oder was immer der Port deines E-Mail-Providers ist
+EMAIL_USE_TLS = True  # Verbindung benutzt TLS-Verschlüsselung
+EMAIL_HOST_USER = config['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = config['EMAIL_HOST_PASSWORD']

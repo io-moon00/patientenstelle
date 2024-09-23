@@ -1,0 +1,35 @@
+<h2>Anmeldung zur Mitgliedschaft</h2>
+<p>Besten Dank für Ihre Anmeldung, Sie erhalten in Kürze Post von uns, mit den wichtigsten 
+  Unterlagen und dem Einzahlungsschein für die Mitgliedschaft. 
+  Bei Fragen dürfen Sie uns gerne telefonisch zu unseren Büroöffnungszeiten kontaktieren.</p>
+
+  <div>
+    <h3>Zusammenfassung Ihrer Anmeldung</h3>
+      <p><span>Mitgliedschaft: </span><span>{{ membership }}</span></p>
+      <div>Anmeldung von: 
+        <p><span>Anrede: </span><span>{{ salutation }}</span></p>
+        <p><span>Vorname: </span><span>{{ prename }}</span></p>
+        <p><span>Nachname: </span><span>{{ name }}</span></p>
+        <p><span>E-mail: </span><span>{{ email }}</span></p>
+        <p><span>Telefon: </span><span>{{ phone }}</span></p>
+        <p>
+          <h4>Adresse:</h4>
+          <span>{{ street }}</span>
+          <span>{{ plz }} {{ place }}</span>
+      </p>
+     </div>
+    {% if message %}
+      <h3>Nachricht</h3>
+      <p>{{ message }}</p>
+    {% endif %}
+  </div>
+
+Freundliche Grüsse
+
+Patientenstelle Basel
+Dornacherstrasse 404
+4002 Basel
+Tel: 061 261 42 41
+Mo. - Fr. von 08.00h bis 11.00h
+<a href="mailto:patientenstelle.basel@bluewin.ch">patientenstelle.basel@bluewin.ch</a>
+

@@ -1,0 +1,19 @@
+Anmeldung zur Mitgliedschaft
+Es ist eine neue Anmeldung für eine Mitgliedschaft eingetroffen.
+
+
+Zusammenfassung Ihrer Anmeldung:
+      Mitgliedschaft: {{ membership }}
+      Anrede: {{ salutation }}
+      Vorname: {{ prename }}
+      Nachname: {{ name }}
+      E-mail: {{ email }}
+      Telefon: {{ phone }}
+      Adresse: 
+      {{ street }}
+      {{ plz }} {{ place }}
+  
+  	Nachricht:
+    {{ message }}
+
+Automatisch erstellte Email von der Webseite der Patientenstelle.

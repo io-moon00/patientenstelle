@@ -1,0 +1,13 @@
+Nachricht Kontaktformular
+Ihr habt folgende Nachricht über das Kontaktformular erhalten:
+
+
+Nachricht von:
+      Anrede: {{ salutation }}
+      Vorname: {{ prename }}
+      Nachname: {{ name }}
+      E-mail: {{ email }}
+      Telefon: {{ phone }}
+      Nachricht: {{ message }}
+
+Automatisch erstellte Email von der Webseite der Patientenstelle.

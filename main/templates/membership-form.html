@@ -1,6 +1,12 @@
 {% extends 'page.html' %}
 {% load markdown_extras %}
 
+{% if email_error %}
+<script>
+  alert('Leider ist beim Senden des Kontaktformulars ein Fehler aufgetreten. Bitte nehmen Sie telefonisch oder per Mail Kontakt mit uns auf.');
+</script>
+{% endif %}
+
 {% block content %}
 <section class="py-24 bg-white sm:py-32">
     <div class="mx-auto max-w-screen-lg px-6 lg:px-8">
@@ -45,7 +51,28 @@
             </div>
 
             <div class="sm:col-span-2">
-                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
+                <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900 required">
+                Strasse und Hausnummer
+                </label>
+                {{ form.street }}
+            </div>
+
+            <div>
+                <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900 required">
+                Postleitzahl
+                </label>
+                {{ form.plz }}
+            </div>
+
+            <div>
+                <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900 required">
+                Ort
+                </label>
+                {{ form.place }}
+            </div>
+
+            <div class="sm:col-span-2">
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900">
                 Nachricht
                 </label>
                 {{ form.message }}
@@ -55,13 +82,13 @@
                 <div class="flex items-center">
                     {{ form.data_policy_accepted }}
 
-                <label for="terms" class="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">
+                <label for="terms" class="ml-2 text-sm font-normal text-gray-500">
                     Ich bestätige, dass ich die 
-                    <a href="#" title="" class="font-medium text-blue-700 hover:text-blue-900">
+                    <a href="#" title="" class="font-medium text-main hover:text-main-dark">
                     AGB
                     </a>
                     und die
-                    <a href="#" title="" class="font-medium text-blue-700 hover:text-blue-900">
+                    <a href="#" title="" class="font-medium text-main hover:text-main-dark">
                     Datenschutzerklärung
                     </a>
                     gelesen habe und akzeptiere.
@@ -70,7 +97,7 @@
             </div>
         
             <button type="submit"
-                class="px-5 py-3 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 transition-all">
+                class="px-5 py-3 text-sm font-medium text-center text-white rounded-lg bg-main hover:bg-main-dark sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 transition-all">
                 Anmeldung senden
             </button>
 

@@ -2,3 +2,6 @@ venv
 node_modules
 __pycache__
 config.yaml
+cleanup.py
+test_cleaned.txt
+test.txt

@@ -38,7 +38,6 @@ class Link(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
-    img = models.ImageField(upload_to='images/', blank=True, null=True)
     position = models.CharField(max_length=100)
 
     class Meta:
@@ -67,12 +66,13 @@ class BlogPost(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     lead = models.TextField()
     content = models.TextField(blank=True)
-    published = models.BooleanField(default=False)
-    img = models.ImageField(upload_to='images/')
+    published = models.BooleanField(default=True)
+    img = models.ImageField(upload_to='images/', blank=True, null=True)
 
     class Meta:
         verbose_name = "Blog Eintrag"
         verbose_name_plural = "Blog Einträge"
+        ordering = ['-date']
 
     def __str__(self):
         return self.title
@@ -100,10 +100,14 @@ class Offer(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     frontpage = models.BooleanField(default=False)
+    order = models.PositiveIntegerField(default=0)
+
+    
 
     class Meta:
         verbose_name = "Angebot"
         verbose_name_plural = "Angebote"
+        ordering = ['order']
     
     def __str__(self):
         return self.title

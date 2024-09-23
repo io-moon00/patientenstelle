@@ -11,38 +11,34 @@
         <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
             {% for post in posts %}
             <article class="relative isolate pb-10 lg:pb-0 flex flex-col gap-8 lg:flex-row border-b border-gray-900/5 lg:border-0">
-            <div class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-                <img src="{{ post.img.url }}" alt="" class="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover">
-                <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
-            </div>
-            <div>
+            <div class="w-full">
                 <div class="flex items-center gap-x-4 text-xs">
                 <time datetime="2020-03-16" class="text-gray-500">{{ post.date }}</time>
                 <div class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{ post.category.name }}</div>
                 </div>
-                <div class="group relative max-w-xl">
+                <div class="group relative">
                 <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                    <a href="#">
+                    <a href="{% if post.content %}{% url 'single_post' post.id %}{% elif post.file %}{{ post.file.url }}{% endif %}">
                     <span class=""></span>
                     {{ post.title }}
                     </a>
                 </h3>
-                <p class="mt-5 text-sm leading-6 text-gray-600">{{ post.lead }} 
+                <p class="mt-5 text-sm leading-6 text-gray-600">
+                    <p class="text-gray-500 dark:text-neutral-400">
+                        {{ post.lead|truncatewords:40 }}
+                    </p>
                     {% if post.content %}
                     <a href="{% url 'single_post' post.id %}" class="text-sm font-semibold leading-6 text-main hover:text-main-dark" aria-describedby="featured-post">Mehr lesen<span aria-hidden="true">&rarr;</span></a>
                     {% endif %}
+
+                    {% if post.file %}
+                    <a href="{{ post.file.url }}" target="_blank" class="text-sm font-semibold leading-6 text-main hover:text-main-dark" aria-describedby="featured-post">PDF <span aria-hidden="true">&rarr;</span></a>
+                    {% endif %}
                 </p>
-                {% if post.file %}
-                <a href="{{ post.file.url }}" target="_blank" class="text-sm font-semibold leading-6 text-main hover:text-main-dark" aria-describedby="featured-post">PDF <span aria-hidden="true">&rarr;</span></a>
-                {% endif %}
+                
                 </div>
                 <div class="mt-6 flex lg:border-t lg:border-gray-900/5 pt-6">
                 <div class="relative flex items-center gap-x-4">
-                    {% if post.author.img %}
-                    <img src="{{ post.author.img.url }}" alt="Profil Bild von {{post.author.name }}" class="h-10 w-10 rounded-full bg-gray-50">
-                    {% else %}
-                    <img class="h-10 w-10 rounded-full bg-gray-50" src="../../media/defaul-profile.png" alt="default Profil image">
-                    {% endif %}
                     <div class="text-sm leading-6">
                     <p class="font-semibold text-gray-900">
                         <a href="#">
